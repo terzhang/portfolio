@@ -1,13 +1,13 @@
 import React, { Suspense, lazy } from 'react';
-import Providers from './Providers';
-import { CSSReset, Spinner } from '@chakra-ui/core';
+import { ThemeProvider, CSSReset, Spinner } from '@chakra-ui/core';
 import { Global } from '@emotion/core';
 import global from './theme/global';
-import Sections from './sections';
+import theme from './theme';
+const Sections = lazy(() => import('./sections'));
 
 function App() {
   return (
-    <Providers>
+    <ThemeProvider theme={theme}>
       <CSSReset />
       <Global styles={global} />
       <Suspense
@@ -22,7 +22,7 @@ function App() {
       >
         <Sections />
       </Suspense>
-    </Providers>
+    </ThemeProvider>
   );
 }
 

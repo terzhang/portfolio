@@ -5,7 +5,11 @@ const colors = {
   white: '#fff',
 
   hair: '#0F0D37',
-  header: { light: '', dark: '#031E3E' },
+  header: {
+    background: { light: '#A8CDD3', dark: '#031E3E' },
+    heading: '#00A3FF',
+    subheading: 'white',
+  },
   house: {
     background: { light: '#FFFBEC', dark: '#2E2E2E' },
     roof: {
