@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense, lazy } from 'react';
+import Providers from './Providers';
+import { CSSReset, Spinner } from '@chakra-ui/core';
+import { Global } from '@emotion/core';
+import global from './theme/global';
+import Sections from './sections';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Providers>
+      <CSSReset />
+      <Global styles={global} />
+      <Suspense
+        fallback={
+          <Spinner
+            size='lg'
+            thickness='5px'
+            label='Getting ready...'
+            color='blue'
+          />
+        }
+      >
+        <Sections />
+      </Suspense>
+    </Providers>
   );
 }
 
