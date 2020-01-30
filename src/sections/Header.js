@@ -1,16 +1,15 @@
 import { keyframes } from '@emotion/core';
 import React, { useState, lazy } from 'react';
-import { Stack, Text, Input, Flex } from '@chakra-ui/core';
+import { Stack, Text, Input, Flex, useColorMode } from '@chakra-ui/core';
 
 const SvgSun = lazy(() => import('../components/SvgComponents/Sun'));
 const SvgMoon = lazy(() => import('../components/SvgComponents/Moon'));
 // const StarBig = lazy(() => import('../components/StarBig'));
 // const StarMid = lazy(() => import('../components/StarMid'));
 // const StarSmall = lazy(() => import('../components/StarSmall'));
-// const Moon = lazy(() => import('../components/FallingStar'));
 
 const MyName = ({ first = 'Terry', last = 'Zhang', ...rest }) => (
-  <Stack justifyContent='center' alignItems='center' {...rest}>
+  <Stack justifyContent='center' alignItems='center' fontSize='5xl' {...rest}>
     <Text color='header.heading'>{first}</Text>
     <Text color='header.heading'>{last}</Text>
   </Stack>
@@ -33,13 +32,14 @@ const BashInput = ({ defaultText = 'Full stack web developer', ...rest }) => {
   `;
 
   return (
-    <Stack direction='row' alignItems='center' {...rest}>
+    <Stack direction='row' alignSelf='center' alignItems='center' {...rest}>
       <Text as='span' color='green.500' fontSize='4xl' m={0} p={0}>
         {'>'}
       </Text>
-      {/* TODO: make it either a horizontal caret */}
+      {/* TODO: make it either a horizontal caret that moves with keyboard or static */}
       <Input
         as='textarea'
+        // prevent wrapping and keep it single row while allowing to fit to text
         rows='1'
         whiteSpace='nowrap'
         maxLength='40'
@@ -79,32 +79,31 @@ const BashInput = ({ defaultText = 'Full stack web developer', ...rest }) => {
   );
 };
 
-const Header = () => {
-  const [mode, setMode] = useState('light');
-
-  // toggle between light and dark mode state
-  const handleModeChange = () => setMode(mode === 'light' ? 'dark' : 'light');
+const Header = (props) => {
+  const { colorMode, toggleColorMode } = useColorMode();
 
   // TODO: solve the onHover issue without importing all icon as object as ChakraUI instructs
-  const renderMoonOrSun = () => (mode === 'light' ? <SvgSun /> : <SvgMoon />);
+  const renderMoonOrSun = () =>
+    colorMode === 'light' ? <SvgSun /> : <SvgMoon />;
 
   const renderDayOrNightText = () => (
     <Text position='absolute' color='black'>
-      {mode === 'light' ? 'Day' : 'Night'}
+      {colorMode === 'light' ? 'Day' : 'Night'}
     </Text>
   );
 
   return (
     <Stack
       as='header'
-      backgroundColor={`header.background.${mode}`}
+      // backgroundColor={`header.background.${colorMode}`}
       w='full'
-      h='1000px'
+      h='auto'
       justifyContent='center'
       alignItems='center'
+      {...props}
     >
       <Flex
-        onClick={handleModeChange}
+        onClick={toggleColorMode}
         position='absolute'
         top={0}
         right={0}
