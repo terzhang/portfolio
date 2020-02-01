@@ -1,10 +1,11 @@
 import React, { lazy } from 'react';
-import { Box, useTheme, Text, Stack, useColorMode } from '@chakra-ui/core';
+import { Box, useTheme, Flex, Stack, useColorMode } from '@chakra-ui/core';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
 import Contact from './Contact';
 import SkillsAndExperience from './SkillsAndExperience';
+import CurveDivider from '../components/CurveDivider';
 const SvgRoofNav = lazy(() => import('../components/SvgComponents/RoofNav'));
 
 const Nav = (props) => {
@@ -23,7 +24,14 @@ const Nav = (props) => {
   };
 
   return (
-    <Box as='nav' position='absolute' zIndex='99' alignSelf='center' w='100%'>
+    <Box
+      as='nav'
+      position='absolute'
+      zIndex='99'
+      alignSelf='center'
+      w='100%'
+      {...props}
+    >
       <SvgRoofNav
         fill={roofNavFill}
         // make both w and h 100% to scale if it has a viewBox
@@ -44,14 +52,23 @@ export default function Sections() {
       position='relative'
       backgroundColor={`header.background.${colorMode}`}
     >
-      <Nav />
-      <Header zIndex='1' />
-      <Stack as='main' w='full' h='full'>
-        <Home zIndex='2' />
-        <SkillsAndExperience />
-        <Contact />
-        <Footer />
-      </Stack>
+      <Header zIndex='1' minH='500px' />
+      <Box w='full' h='full'>
+        <Nav />
+        <Stack
+          as='main'
+          mx='10%'
+          // h='full' <-- this made the container not flex by children
+          alignSelf='center'
+          alignItems='center'
+        >
+          <Home zIndex='2' />
+          <SkillsAndExperience />
+          <CurveDivider />
+          <Contact />
+          <Footer />
+        </Stack>
+      </Box>
     </Stack>
   );
 }

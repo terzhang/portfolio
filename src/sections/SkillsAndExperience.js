@@ -1,13 +1,5 @@
 import React, { lazy } from 'react';
-import {
-  Stack,
-  useTheme,
-  useColorMode,
-  Text,
-  Box,
-  List,
-  ListItem,
-} from '@chakra-ui/core';
+import { Stack, Text, List, ListItem } from '@chakra-ui/core';
 const SvgFrameworks = lazy(() =>
   import('../components/SvgComponents/Frameworks')
 );
@@ -24,9 +16,7 @@ const ExperienceItem = ({ title, date = '', description = '' }) => (
 
 const Content = (props) => (
   <Stack spacing={2} {...props}>
-    <Text as='h2' mb>
-      I'm well versed in:
-    </Text>
+    <Text as='h2'>I'm well versed in:</Text>
     <Text alignSelf='center'>React - Git - NodeJs - Express</Text>
     <Text as='h2'>Work Experience</Text>
     <List>
@@ -36,17 +26,12 @@ const Content = (props) => (
     </List>
   </Stack>
 );
-/* <SvgRoofVertical
-            height='100%'
-            viewBox='0 0 40 225'
-            preserveAspectRatio='none'
-            style={{ position: 'absolute', left: '0', alignSelf: 'flex-start' }}
-          /> */
+
 const SkillsAndExperience = () => {
   return (
     <Stack
       isInline
-      w='80%'
+      w='full'
       alignSelf='center'
       justifyContent='center'
       alignItems='center'
@@ -59,7 +44,12 @@ const SkillsAndExperience = () => {
         height='100%'
         viewBox='0 0 40 225'
         preserveAspectRatio='none'
-        style={{ position: 'absolute', right: '0', alignSelf: 'flex-end' }}
+        style={{
+          position: 'absolute',
+          right: '0',
+          bottom: '0',
+          alignSelf: 'flex-end',
+        }}
       />
     </Stack>
   );
