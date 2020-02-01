@@ -1,8 +1,5 @@
 import React, { lazy } from 'react';
 import { Stack, Text } from '@chakra-ui/core';
-const SvgCurveIn = lazy(() => import('../components/SvgComponents/CurveIn'));
-const SvgCurveMid = lazy(() => import('../components/SvgComponents/CurveMid'));
-const SvgCurveOut = lazy(() => import('../components/SvgComponents/CurveOut'));
 const SvgVertical = lazy(() =>
   import('../components/SvgComponents/VerticalLine')
 );
@@ -24,16 +21,14 @@ const Content = (props) => {
 
 const Contact = () => {
   return (
-    <Stack w='full' alignSelf='center' positive='relative'>
-      <Stack as='section' isInline position='relative'>
-        <SvgVertical
-          height='100%'
-          preserveAspectRatio='none'
-          style={{ position: 'absolute', left: '0' }}
-        />
-        <SvgLighthouse />
-        <Content />
-      </Stack>
+    <Stack as='section' isInline position='relative' w='full' h='full'>
+      <SvgLighthouse />
+      <Content />
+      <SvgVertical
+        height='100%'
+        preserveAspectRatio='none'
+        style={{ position: 'absolute', right: '0' }}
+      />
     </Stack>
   );
 };
