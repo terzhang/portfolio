@@ -7,29 +7,38 @@ const SvgFolder = lazy(() => import('../components/SvgComponents/Folder'));
 
 const Content = (props) => {
   return (
-    <List>
-      <ListItem>
-        <Text>Massaging App</Text>
-      </ListItem>
-      <ListItem>
-        <Text>Art Portfolio App</Text>
-      </ListItem>
-      <ListItem>
-        <Text>Nail Salon App</Text>
-      </ListItem>
-    </List>
+    <Stack {...props}>
+      <List>
+        <ListItem>
+          <Text>Massaging App</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Art Portfolio App</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nail Salon App</Text>
+        </ListItem>
+      </List>
+    </Stack>
   );
 };
 
 const PastWorks = () => {
   return (
-    <Stack as='section' isInline position='relative' w='full' h='full'>
+    <Stack
+      as='section'
+      isInline
+      position='relative'
+      w='full'
+      h='full'
+      justifyContent='space-between'
+    >
       <SvgVertical
         height='100%'
         preserveAspectRatio='none'
         style={{ position: 'absolute', left: '0' }}
       />
-      <Content />
+      <Content ml='32' alignSelf='center' />
       <SvgFolder />
     </Stack>
   );
