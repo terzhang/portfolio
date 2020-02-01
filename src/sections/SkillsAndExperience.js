@@ -15,10 +15,12 @@ const ExperienceItem = ({ title, date = '', description = '' }) => (
 );
 
 const Content = (props) => (
-  <Stack spacing={2} {...props}>
-    <Text as='h2'>I'm well versed in:</Text>
-    <Text alignSelf='center'>React - Git - NodeJs - Express</Text>
-    <Text as='h2'>Work Experience</Text>
+  <Stack spacing={4} justifyContent='space-evenly' h='full' {...props}>
+    <Stack>
+      <Text as='h2'>I'm well versed in:</Text>
+      <Text alignSelf='center'>React - Git - NodeJs - Express</Text>
+      <Text as='h2'>Work Experience</Text>
+    </Stack>
     <List>
       <ExperienceItem title='Developer' date='2018-2020' />
       <ExperienceItem title='Freelancer' date='2018-2019' />
