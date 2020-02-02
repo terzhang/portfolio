@@ -3,7 +3,6 @@ import { Stack, Text } from '@chakra-ui/core';
 
 // const SvgRoofNav = lazy(() => import('../components/SvgComponents/RoofNav'));
 const SvgHello = lazy(() => import('../components/SvgComponents/Hello'));
-const SvgChimney = lazy(() => import('../components/SvgComponents/Chimney'));
 const SvgRoofVertical = lazy(() =>
   import('../components/SvgComponents/RoofVertical')
 );
@@ -26,7 +25,6 @@ const Home = (props) => {
       // overflowX='hidden'
       {...props}
     >
-      <SvgChimney style={{ position: 'relative', alignSelf: 'flex-start' }} />
       <section
         // as='section'
         aria-label='home'

@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Box, Stack, useColorMode } from '@chakra-ui/core';
+import { Box, Stack, useColorMode, Flex } from '@chakra-ui/core';
 import Header from './Header';
 import Footer from './Footer';
 import Home from './Home';
@@ -8,6 +8,9 @@ import Contact from './Contact';
 import SkillsAndExperience from './SkillsAndExperience';
 import CurveDivider from '../components/CurveDivider';
 import Nav from '../components/Nav';
+import RoofBg from '../components/SvgComponents/RoofBg';
+
+const SvgChimney = lazy(() => import('../components/SvgComponents/Chimney'));
 
 export default function Sections() {
   const { colorMode } = useColorMode();
@@ -17,32 +20,47 @@ export default function Sections() {
       h='full'
       position='relative'
       backgroundColor={`header.background.${colorMode}`}
+      spacing={0}
     >
-      <Header zIndex='1' minH='500px' />
-      <Box w='full' h='full'>
+      <Header minH='500px' />
+      <Flex direction='column'>
         <Nav />
+        <SvgChimney
+          style={{ position: 'absolute', alignSelf: 'flex-start', left: '10%' }}
+        />
         <Stack
-          as='main'
           mx='10%'
-          // h='full' <-- this made the container not flex by children
           alignSelf='center'
           alignItems='center'
-          backgroundColor={
-            colorMode === 'light'
-              ? 'house.background.light'
-              : 'house.background.dark'
-          }
           position='relative'
+          spacing={0}
         >
-          <Home zIndex='2' />
-          <SkillsAndExperience />
-          <CurveDivider />
-          <PastWorks />
-          <CurveDivider transform='scaleX(-1) scaleY(1)' />
-          <Contact />
-          <Footer />
+          <RoofBg
+            fill={colorMode === 'light' ? '#FFFBEC' : '#2E2E2E'}
+            style={{ alignSelf: 'center' }}
+          />
+          <Stack
+            as='main'
+            // h='full' <-- this made the container not flex by children
+            w='full'
+            backgroundColor={
+              colorMode === 'light'
+                ? 'house.background.light'
+                : 'house.background.dark'
+            }
+            position='relative'
+            spacing={0}
+          >
+            <Home />
+            <SkillsAndExperience />
+            <CurveDivider />
+            <PastWorks />
+            <CurveDivider transform='scaleX(-1) scaleY(1)' />
+            <Contact />
+            <Footer />
+          </Stack>
         </Stack>
-      </Box>
+      </Flex>
     </Stack>
   );
 }
