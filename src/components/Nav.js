@@ -18,21 +18,8 @@ const Nav = (props) => {
   };
 
   return (
-    <Box
-      as='nav'
-      position='absolute'
-      zIndex='99'
-      alignSelf='center'
-      w='100%'
-      {...props}
-    >
-      <SvgRoofNav
-        fill={roofNavFill}
-        // make both w and h 100% to scale if it has a viewBox
-        width='100%'
-        height='100%'
-        // style={{ position: 'absolute', zIndex: '2' }}
-      />
+    <Box as='nav' position='absolute' zIndex='99' alignSelf='center' {...props}>
+      <SvgRoofNav fill={roofNavFill} />
     </Box>
   );
 };
