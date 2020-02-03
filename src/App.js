@@ -1,35 +1,36 @@
 import React, { Suspense, lazy } from 'react';
-import {
-  ThemeProvider,
-  CSSReset,
-  Spinner,
-  ColorModeProvider,
-} from '@chakra-ui/core';
-import { Global } from '@emotion/core';
-import global from './theme/global';
-import theme from './theme';
+import { Spinner, Flex, useColorMode, Stack } from '@chakra-ui/core';
+import Header from './sections/Header';
+import Nav from './components/Nav';
+const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
+
 const Sections = lazy(() => import('./sections'));
 
 function App() {
+  const { colorMode } = useColorMode();
   return (
-    <ThemeProvider theme={theme}>
-      <ColorModeProvider>
-        <CSSReset />
-        <Global styles={global} />
-        <Suspense
-          fallback={
-            <Spinner
-              size='lg'
-              thickness='5px'
-              label='Getting ready...'
-              color='blue'
-            />
-          }
-        >
+    <Suspense fallback={<Spinner label='Getting ready...' color='blue' />}>
+      <Stack
+        w='full'
+        h='full'
+        position='relative'
+        backgroundColor={`header.background.${colorMode}`}
+        spacing={0}
+      >
+        <Header minH='500px' />
+        <Flex direction='column'>
+          <Nav />
+          <SvgChimney
+            style={{
+              position: 'absolute',
+              alignSelf: 'flex-start',
+              left: '10%',
+            }}
+          />
           <Sections />
-        </Suspense>
-      </ColorModeProvider>
-    </ThemeProvider>
+        </Flex>
+      </Stack>
+    </Suspense>
   );
 }
 
