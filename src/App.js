@@ -3,8 +3,8 @@ import { Spinner, Flex, useColorMode, Stack } from '@chakra-ui/core';
 import Header from './sections/Header';
 import Nav from './components/Nav';
 const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
-
 const Sections = lazy(() => import('./sections'));
+const SvgRoofBg = lazy(() => import('./components/SvgComponents/RoofBg'));
 
 function App() {
   const { colorMode } = useColorMode();
@@ -20,14 +20,25 @@ function App() {
         <Header minH='500px' />
         <Flex direction='column'>
           <Nav />
-          <SvgChimney
-            style={{
-              position: 'absolute',
-              alignSelf: 'flex-start',
-              left: '10%',
-            }}
-          />
-          <Sections />
+          <Stack
+            alignSelf='center'
+            alignItems='center'
+            position='relative'
+            spacing={0}
+          >
+            <SvgRoofBg
+              fill={colorMode === 'light' ? '#FFFBEC' : '#2E2E2E'}
+              style={{ alignSelf: 'center' }}
+            />
+            <SvgChimney
+              style={{
+                position: 'absolute',
+                alignSelf: 'flex-start',
+                left: '10%',
+              }}
+            />
+            <Sections />
+          </Stack>
         </Flex>
       </Stack>
     </Suspense>
