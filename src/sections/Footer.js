@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Stack, Flex, Text } from '@chakra-ui/core';
+import { Stack, Flex, Text, Link } from '@chakra-ui/core';
 const SvgStairs = lazy(() => import('../components/SvgComponents/Stairs'));
 const SvgDoor = lazy(() => import('../components/SvgComponents/Door'));
 const SvgHangingLight = lazy(() =>
@@ -19,13 +19,19 @@ const Footer = ({ stairStyle = {}, ...props }) => {
       <Flex position='relative' justifyContent='center'>
         <SvgHangingLight style={{ alignSelf: 'flex-start' }} />
         <Stack
+          as='p'
           position='absolute'
           p='10px'
           alignSelf='flex-end'
           alignItems='center'
+          fontSize='5xl'
         >
-          <Text color='white.500'>Download my</Text>
-          <Text color='green.500'>Resume</Text>
+          <Text as='span' color='white.500'>
+            Download my
+          </Text>
+          <Link color='green.500' fontWeight='bold'>
+            Resume
+          </Link>
         </Stack>
       </Flex>
       <SvgStairs style={stairStyle} />
