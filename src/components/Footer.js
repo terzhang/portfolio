@@ -1,11 +1,9 @@
 import React, { lazy } from 'react';
 import { Stack, Flex, Text, Link } from '@chakra-ui/core';
-import SvgDownload from '../components/SvgComponents/Download';
-const SvgStairs = lazy(() => import('../components/SvgComponents/Stairs'));
-const SvgDoor = lazy(() => import('../components/SvgComponents/Door'));
-const SvgHangingLight = lazy(() =>
-  import('../components/SvgComponents/HangingLight')
-);
+import SvgDownload from './SvgComponents/Download';
+const SvgStairs = lazy(() => import('./SvgComponents/Stairs'));
+const SvgDoor = lazy(() => import('./SvgComponents/Door'));
+const SvgHangingLight = lazy(() => import('./SvgComponents/HangingLight'));
 
 const Footer = ({ stairStyle = {}, ...props }) => {
   return (

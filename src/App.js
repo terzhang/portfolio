@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Spinner, Flex, useColorMode, Stack } from '@chakra-ui/core';
 import Header from './sections/Header';
 import Nav from './components/Nav';
-import Footer from './sections/Footer';
+import Footer from './components/Footer';
 const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
 const Sections = lazy(() => import('./sections'));
 const SvgRoofBg = lazy(() => import('./components/SvgComponents/RoofBg'));
