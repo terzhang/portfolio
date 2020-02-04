@@ -34,10 +34,13 @@ const Home = (props) => {
           preserveAspectRatio='none'
           style={{ position: 'absolute', left: '0', alignSelf: 'flex-start' }}
         />
-        <Stack m='auto'>
+        <Stack m='auto' alignItems='center'>
           <SvgHello aria-labelledby='introduction' />
-          <Text id='introduction'>Hi there! I'm Terry</Text>
-          <Text>A web developer from Scarborough, Ontario</Text>
+          <Text id='introduction' fontSize='5xl' textAlign='center'>
+            <Text as='span'>Hi there, I'm Terry!</Text>
+            <br />
+            <Text as='span'>A web developer from Scarborough, Ontario</Text>
+          </Text>
         </Stack>
       </Flex>
       {/* this height is (FadeIn/FadeOut height * 2) - FadeMid  */}
