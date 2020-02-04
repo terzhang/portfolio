@@ -6,27 +6,26 @@ import Footer from './sections/Footer';
 const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
 const Sections = lazy(() => import('./sections'));
 const SvgRoofBg = lazy(() => import('./components/SvgComponents/RoofBg'));
-const SvgStairs = lazy(() => import('./components/SvgComponents/Stairs'));
 
 function App() {
   const { colorMode } = useColorMode();
   return (
     <Suspense fallback={<Spinner label='Getting ready...' color='blue' />}>
-      <Stack
+      <Flex
+        flexDir='column'
         w='full'
         h='full'
         position='relative'
         backgroundColor={`header.background.${colorMode}`}
-        spacing={0}
       >
         <Header minH='500px' />
-        <Flex direction='column' position='relative'>
+        <Flex flexDir='column' position='relative'>
           <Nav />
-          <Stack
+          <Flex
+            flexDir='column'
             alignSelf='center'
             alignItems='center'
             position='relative'
-            spacing={0}
           >
             <SvgRoofBg
               fill={colorMode === 'light' ? '#FFFBEC' : '#2E2E2E'}
@@ -41,9 +40,9 @@ function App() {
             />
             <Sections />
             <Footer stairStyle={{ marginRight: '10%' }} />
-          </Stack>
+          </Flex>
         </Flex>
-      </Stack>
+      </Flex>
     </Suspense>
   );
 }

@@ -32,7 +32,7 @@ const BashInput = ({ defaultText = 'Full stack web developer', ...rest }) => {
   `;
 
   return (
-    <Stack direction='row' alignSelf='center' alignItems='center' {...rest}>
+    <Flex alignSelf='center' alignItems='center' {...rest}>
       <Text as='span' color='green.500' fontSize='4xl' m={0} p={0}>
         {'>'}
       </Text>
@@ -75,7 +75,7 @@ const BashInput = ({ defaultText = 'Full stack web developer', ...rest }) => {
       >
         {'_'}
       </Text>
-    </Stack>
+    </Flex>
   );
 };
 
