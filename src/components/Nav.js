@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Box, useTheme, useColorMode } from '@chakra-ui/core';
-const SvgRoofNav = lazy(() => import('../components/SvgComponents/RoofNav'));
+const SvgRoof = lazy(() => import('./SvgComponents/Roof'));
 
 const Nav = (props) => {
   const { colorMode } = useColorMode();
@@ -19,7 +19,7 @@ const Nav = (props) => {
 
   return (
     <Box as='nav' position='absolute' zIndex='99' alignSelf='center' {...props}>
-      <SvgRoofNav fill={roofNavFill} />
+      <SvgRoof fill={roofNavFill} />
     </Box>
   );
 };
