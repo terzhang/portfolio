@@ -26,6 +26,7 @@ const colors = {
     },
     basement: {
       background: { light: '#2E2E2E', dark: '#000000' },
+      download: '#15C787',
     },
   },
 
