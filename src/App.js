@@ -2,9 +2,11 @@ import React, { Suspense, lazy } from 'react';
 import { Spinner, Flex, useColorMode, Stack } from '@chakra-ui/core';
 import Header from './sections/Header';
 import Nav from './components/Nav';
+import Footer from './sections/Footer';
 const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
 const Sections = lazy(() => import('./sections'));
 const SvgRoofBg = lazy(() => import('./components/SvgComponents/RoofBg'));
+const SvgStairs = lazy(() => import('./components/SvgComponents/Stairs'));
 
 function App() {
   const { colorMode } = useColorMode();
@@ -18,7 +20,7 @@ function App() {
         spacing={0}
       >
         <Header minH='500px' />
-        <Flex direction='column'>
+        <Flex direction='column' position='relative'>
           <Nav />
           <Stack
             alignSelf='center'
@@ -38,6 +40,7 @@ function App() {
               }}
             />
             <Sections />
+            <Footer stairStyle={{ marginRight: '10%' }} />
           </Stack>
         </Flex>
       </Stack>

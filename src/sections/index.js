@@ -1,7 +1,6 @@
 import React, { lazy } from 'react';
 import { Stack, useColorMode } from '@chakra-ui/core';
 
-import Footer from './Footer';
 import Home from './Home';
 import PastWorks from './PastWorks';
 import Contact from './Contact';
@@ -22,6 +21,7 @@ export default function Sections() {
       }
       position='relative'
       spacing={0}
+      px='10%'
     >
       <Home />
       <SkillsAndExperience />
@@ -29,7 +29,6 @@ export default function Sections() {
       <PastWorks />
       <CurveDivider transform='scaleX(-1) scaleY(1)' />
       <Contact />
-      <Footer />
     </Stack>
   );
 }
