@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Stack, Text, List, ListItem } from '@chakra-ui/core';
+import { Stack, Heading, Text, List, ListItem } from '@chakra-ui/core';
 const SvgFrameworks = lazy(() =>
   import('../components/SvgComponents/Frameworks')
 );
@@ -9,18 +9,25 @@ const SvgVertical = lazy(() =>
 
 const ExperienceItem = ({ title, date = '', description = '' }) => (
   <ListItem key={title + date}>
-    <Text>{title + `(${date})`}</Text>
-    <Text>{description}</Text>
+    <Text>
+      <Text as='span' fontSize='4xl'>
+        {title}
+      </Text>
+      <Text as='span' fontSize='lg' color='gray.500'>{` (${date})`}</Text>
+      <Text>{description}</Text>
+    </Text>
   </ListItem>
 );
 
 const Content = (props) => (
   <Stack spacing={4} justifyContent='space-evenly' h='full' {...props}>
     <Stack>
-      <Text as='h2'>I'm well versed in:</Text>
+      <Heading size='lg'>I'm well versed in</Heading>
       <Text alignSelf='center'>React - Git - NodeJs - Express</Text>
-      <Text as='h2'>Work Experience</Text>
     </Stack>
+    <Heading size='lg' id='experience'>
+      Work Experience
+    </Heading>
     <List>
       <ExperienceItem title='Developer' date='2018-2020' />
       <ExperienceItem title='Freelancer' date='2018-2019' />
@@ -38,7 +45,6 @@ const SkillsAndExperience = () => {
       justifyContent='center'
       alignItems='center'
       position='relative'
-      p='100px'
     >
       <SvgFrameworks />
       <Content />

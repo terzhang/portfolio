@@ -34,7 +34,7 @@ const Home = (props) => {
           preserveAspectRatio='none'
           style={{ position: 'absolute', left: '0', alignSelf: 'flex-start' }}
         />
-        <Stack m='auto' alignItems='center'>
+        <Stack m='auto' alignItems='center' fontWeight='semibold'>
           <SvgHello aria-labelledby='introduction' />
           <Text id='introduction' fontSize='5xl' textAlign='center'>
             <Text as='span'>Hi there, I'm Terry!</Text>
