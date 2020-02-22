@@ -17,6 +17,7 @@ function App() {
         h='full'
         position='relative'
         backgroundColor={`header.background.${colorMode}`}
+        overflow='hidden'
       >
         <Header minH='500px' />
         <Flex flexDir='column' position='relative'>
