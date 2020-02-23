@@ -3,9 +3,9 @@ import { keyframes } from '@emotion/core';
 import styled from '@emotion/styled';
 import { Stack, Flex, Box, Text, Link } from '@chakra-ui/core';
 import SvgDownload from './SvgComponents/Download';
+import scrollToTop from '../helpers/scrollToTop';
 const SvgStairs = lazy(() => import('./SvgComponents/Stairs'));
 const SvgDoor = lazy(() => import('./SvgComponents/Door'));
-// const SvgHangingLight = lazy(() => import('./SvgComponents/HangingLight'));
 
 const lightFlicker = keyframes`
     0% {
@@ -68,10 +68,6 @@ const SvgHangingLight = (props) => {
   );
 };
 
-/*
-  Since flex container is relative, and there's only one non-abs element (hanging light svg),
-  the container will take up as much space as the svg, allowing the abs text + icon to be absolute and stack on top.
-*/
 const HangingLight = () => (
   <Flex position='absolute' left='50%' transform='translateX(-50%)'>
     <Box as={SvgHangingLight} alignSelf='flex-start' />
@@ -103,6 +99,48 @@ const HangingLight = () => (
   </Flex>
 );
 
+const doorClose = keyframes`
+  from {
+    transform: perspective(900) rotateY(40deg);
+  }
+  to {
+    transform: perspective(0) rotateY(0deg);
+  }
+`;
+
+const halfDoorSwing = keyframes`
+  from {
+    transform: perspective(900) rotateY(0deg);
+    }
+  to {
+    transform: perspective(900) rotateY(40deg);
+  }
+`;
+
+const fullDoorSwing = keyframes`
+  from {
+    transform: perspective(900) rotateY(40deg);
+  }
+  to {
+    transform: perspective(900) rotateY(90deg);
+  }
+`;
+
+const Door = styled(SvgDoor)`
+  position: relative;
+  align-self: flex-end;
+  transform-origin: 0% 50%;
+  :hover:not(:active):not(:focus) {
+    animation: ${halfDoorSwing} 0.5s ease 0.1s forwards;
+  }
+  :active:hover {
+    animation: ${fullDoorSwing} 0.5s ease 0s forwards;
+  }
+  :not(:hover):not(:active) {
+    animation: ${doorClose} 0.5s ease;
+  }
+`;
+
 const Footer = ({ stairStyle = {}, ...props }) => {
   return (
     <Stack
@@ -113,7 +151,7 @@ const Footer = ({ stairStyle = {}, ...props }) => {
       px='10%'
       {...props}
     >
-      <SvgDoor style={{ alignSelf: 'flex-end' }} />
+      <Door onClick={() => scrollToTop()} />
       <HangingLight />
       <SvgStairs style={stairStyle} />
       <Text position='absolute' alignSelf='flex-end' right={0}>
