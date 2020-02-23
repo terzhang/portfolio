@@ -6,6 +6,9 @@ import Footer from './components/Footer';
 const SvgChimney = lazy(() => import('./components/SvgComponents/Chimney'));
 const Sections = lazy(() => import('./sections'));
 const SvgRoofBg = lazy(() => import('./components/SvgComponents/RoofBg'));
+const SvgRoofVertical = lazy(() =>
+  import('./components/SvgComponents/RoofVertical')
+);
 
 function App() {
   const { colorMode } = useColorMode();
@@ -30,17 +33,27 @@ function App() {
           >
             <SvgRoofBg
               fill={colorMode === 'light' ? '#FFFBEC' : '#2E2E2E'}
-              style={{ alignSelf: 'center' }}
+              style={{ alignSelf: 'center', position: 'absolute' }}
             />
             <SvgChimney
               style={{
-                position: 'absolute',
+                // position: 'absolute',
                 alignSelf: 'flex-start',
-                left: '10%',
+                marginLeft: '10%',
+                zIndex: '2',
+              }}
+            />
+            <SvgRoofVertical
+              style={{
+                // position: 'absolute',
+                alignSelf: 'flex-start',
+                marginLeft: '10%',
+                zIndex: '2',
+                display: 'block',
               }}
             />
             <Sections />
-            <Footer stairStyle={{ marginRight: '10%' }} />
+            <Footer />
           </Flex>
         </Flex>
       </Flex>
