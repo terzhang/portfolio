@@ -12,10 +12,12 @@ const Footer = ({ stairStyle = {}, ...props }) => {
       backgroundColor='black'
       justifyContent='space-between'
       isInline
+      px='10%'
       {...props}
     >
       <SvgDoor style={{ alignSelf: 'flex-end' }} />
-      <Flex position='relative' justifyContent='center'>
+      {/* resume download light*/}
+      <Flex position='absolute' justifyContent='center'>
         <SvgHangingLight style={{ alignSelf: 'flex-start' }} />
         <Stack
           as='p'
