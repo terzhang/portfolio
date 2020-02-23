@@ -23,7 +23,7 @@ const Content = (props) => {
   );
 };
 
-const PastWorks = () => {
+const PastWorks = (props) => {
   return (
     <Stack
       as='section'
@@ -32,6 +32,7 @@ const PastWorks = () => {
       w='full'
       h='full'
       justifyContent='space-between'
+      {...props}
     >
       <SvgVertical
         height='100%'
@@ -39,7 +40,7 @@ const PastWorks = () => {
         style={{ position: 'absolute', left: '0' }}
       />
       <Content ml='32' alignSelf='center' />
-      <SvgFolder />
+      <SvgFolder style={{ marginBottom: '-125px' }} />
     </Stack>
   );
 };

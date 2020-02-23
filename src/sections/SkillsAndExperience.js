@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import {
   Stack,
+  Box,
   Heading,
   Text,
   List,
@@ -19,13 +20,21 @@ const SvgVertical = lazy(() =>
 const ExperienceItem = ({ title, date = '', description = '' }) => (
   <ListItem key={title + date}>
     <Text as='p'>
-      <Text as='span' fontSize='4xl'>
+      <Text as='span' fontSize='2xl'>
         {title}
       </Text>
       <Text as='span' fontSize='lg' color='gray.500'>{` (${date})`}</Text>
     </Text>
     <Text as='p'>{description}</Text>
   </ListItem>
+);
+
+const Experiences = () => (
+  <List>
+    <ExperienceItem title='Developer' date='2018-2020' />
+    <ExperienceItem title='Freelancer' date='2018-2019' />
+    <ExperienceItem title='eCommerce owner' date='2017-2018' />
+  </List>
 );
 
 const SkillTags = ({ skillsObj }) => {
@@ -80,23 +89,21 @@ const skillsObj = [
 ];
 
 const Content = (props) => (
-  <Stack spacing={4} justifyContent='space-evenly' h='full' {...props}>
-    <Stack>
+  <Stack spacing={8} justifyContent='space-evenly' h='full' {...props}>
+    <Box>
       <Heading size='lg'>I'm well versed in</Heading>
       <SkillTags skillsObj={skillsObj} />
-    </Stack>
-    <Heading size='lg' id='experience'>
-      Work Experience
-    </Heading>
-    <List>
-      <ExperienceItem title='Developer' date='2018-2020' />
-      <ExperienceItem title='Freelancer' date='2018-2019' />
-      <ExperienceItem title='eCommerce owner' date='2017-2018' />
-    </List>
+    </Box>
+    <Box>
+      <Heading size='lg' id='experience'>
+        Work Experience
+      </Heading>
+      <Experiences />
+    </Box>
   </Stack>
 );
 
-const SkillsAndExperience = () => {
+const SkillsAndExperience = (props) => {
   return (
     <Stack
       isInline
@@ -105,8 +112,9 @@ const SkillsAndExperience = () => {
       justifyContent='center'
       alignItems='center'
       position='relative'
+      {...props}
     >
-      <SvgFrameworks />
+      <SvgFrameworks style={{ marginBottom: '-125px' }} />
       <Content />
       <SvgVertical
         height='100%'
