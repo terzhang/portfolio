@@ -6,6 +6,7 @@ import SvgDownload from './SvgComponents/Download';
 import scrollToTop from '../helpers/scrollToTop';
 const SvgStairs = lazy(() => import('./SvgComponents/Stairs'));
 const SvgDoor = lazy(() => import('./SvgComponents/Door'));
+const SvgExit = lazy(() => import('./SvgComponents/Exit'));
 
 const lightFlicker = keyframes`
     0% {
@@ -139,6 +140,9 @@ const Door = styled(SvgDoor)`
   :not(:hover):not(:active) {
     animation: ${doorClose} 0.5s ease;
   }
+  & > * {
+    pointer-events: none;
+  }
 `;
 
 const Footer = ({ stairStyle = {}, ...props }) => {
@@ -151,7 +155,10 @@ const Footer = ({ stairStyle = {}, ...props }) => {
       px='10%'
       {...props}
     >
-      <Door onClick={() => scrollToTop()} />
+      <Box alignSelf='flex-end'>
+        <SvgExit />
+        <Door onClick={scrollToTop()} />
+      </Box>
       <HangingLight />
       <SvgStairs style={stairStyle} />
       <Text position='absolute' alignSelf='flex-end' right={0}>
