@@ -1,6 +1,7 @@
 import React, { lazy } from 'react';
 import {
   Stack,
+  Flex,
   Box,
   Heading,
   Text,
@@ -105,29 +106,28 @@ const Content = (props) => (
 
 const SkillsAndExperience = (props) => {
   return (
-    <Stack
+    <Flex
       isInline
       w='full'
       alignSelf='center'
-      justifyContent='center'
       alignItems='center'
       position='relative'
+      spacing={0}
       {...props}
     >
-      <SvgFrameworks style={{ marginBottom: '-125px' }} />
-      <Content />
-      <SvgVertical
+      <Box as={SvgFrameworks} mb='-125px' />
+      <Content margin='auto' />
+      <Box
+        as={SvgVertical}
         height='100%'
         viewBox='0 0 40 225'
         preserveAspectRatio='none'
-        style={{
-          position: 'absolute',
-          right: '0',
-          bottom: '0',
-          alignSelf: 'flex-end',
-        }}
+        position='absolute'
+        right={0}
+        bottom={0}
+        alignSelf='flex-end'
       />
-    </Stack>
+    </Flex>
   );
 };
 

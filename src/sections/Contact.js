@@ -19,9 +19,16 @@ const Content = (props) => {
   );
 };
 
-const Contact = () => {
+const Contact = (props) => {
   return (
-    <Stack as='section' isInline position='relative' w='full' h='full'>
+    <Stack
+      as='section'
+      isInline
+      position='relative'
+      w='full'
+      h='full'
+      {...props}
+    >
       <SvgLighthouse />
       <Content alignSelf='flex-end' />
       <SvgVertical
