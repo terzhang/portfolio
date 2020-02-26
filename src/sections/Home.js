@@ -6,9 +6,6 @@ const SvgHello = lazy(() => import('../components/SvgComponents/Hello'));
 const SvgRoofVertical = lazy(() =>
   import('../components/SvgComponents/RoofVertical')
 );
-const SvgFadeIn = lazy(() => import('../components/SvgComponents/FadeIn'));
-const SvgFadeMid = lazy(() => import('../components/SvgComponents/FadeMid'));
-const SvgFadeOut = lazy(() => import('../components/SvgComponents/FadeOut'));
 
 const Home = (props) => {
   // TODO: convert style prop to emotion css prop use as chakra components
@@ -42,24 +39,6 @@ const Home = (props) => {
             <Text as='span'>A web developer from Scarborough, Ontario</Text>
           </Text>
         </Stack>
-      </Flex>
-      {/* this height is (FadeIn/FadeOut height * 2) - FadeMid  */}
-      <Flex h='calc(161px * 2 - 39px)' w='full'>
-        <SvgFadeIn
-          height='161px'
-          style={{ alignSelf: 'flex-start', flex: 'none' }}
-        />
-        {/* line is 39px thick by default */}
-        <SvgFadeMid
-          width='100%'
-          height='39px'
-          preserveAspectRatio='none'
-          style={{ alignSelf: 'center', flex: 'auto' }}
-        />
-        <SvgFadeOut
-          height='161px'
-          style={{ alignSelf: 'flex-end', flex: 'none' }}
-        />
       </Flex>
     </Flex>
   );
