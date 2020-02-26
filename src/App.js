@@ -53,7 +53,7 @@ function App() {
               }}
             />
             <Sections />
-            <Footer />
+            <Footer zIndex='2' />
           </Flex>
         </Flex>
       </Flex>
