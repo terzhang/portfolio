@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Stack, useColorMode } from '@chakra-ui/core';
+import { Box, useColorMode } from '@chakra-ui/core';
 
 import Home from './Home';
 import PastWorks from './PastWorks';
@@ -10,7 +10,7 @@ import CurveDivider from '../components/CurveDivider';
 export default function Sections() {
   const { colorMode } = useColorMode();
   return (
-    <Stack
+    <Box
       as='main'
       // h='full' <-- this made the container not flex by children
       w='full'
@@ -20,7 +20,6 @@ export default function Sections() {
           : 'house.background.dark'
       }
       position='relative'
-      spacing={0}
       px='10%'
     >
       <Home />
@@ -29,6 +28,6 @@ export default function Sections() {
       <PastWorks />
       <CurveDivider transform='scaleX(-1) scaleY(1)' />
       <Contact />
-    </Stack>
+    </Box>
   );
 }
