@@ -10,8 +10,8 @@ const svgExit = (props) => (
   >
     <g filter='url(#filter0_di)'>
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M23.016 100.237a4 4 0 004 4h109.946a4 4 0 004-4V47.606a4 4 0 00-4-4h-26.751a.01.01 0 01-.007-.018c.004-.004.01-.004.006-.008L88.885 22.395c-6.896-6.85-6.896-6.85-13.792 0L53.768 43.58c-.004.004.002.004.006.008a.01.01 0 01-.007.018h-26.75a4 4 0 00-4 4v52.631zm7.155-7.09a4 4 0 004 4h95.636a4 4 0 004-4V54.728a4 4 0 00-3.998-4l-20.857-.007a4.002 4.002 0 01-2.818-1.162L85.163 28.726c-.821-.815-2.016-1.076-3.174-1.076s-2.353.26-3.174 1.076L57.861 49.543a4 4 0 01-2.82 1.162L34.17 50.7a4 4 0 00-4 4v38.447z'
         fill='url(#paint_linear)'
       />
@@ -20,8 +20,8 @@ const svgExit = (props) => (
         fill='url(#paint_linear)'
       />
       <path
-        fill-rule='evenodd'
-        clip-rule='evenodd'
+        fillRule='evenodd'
+        clipRule='evenodd'
         d='M127.675 61.512a3.545 3.545 0 00-3.546-3.546h-14.324a3.545 3.545 0 000 7.091h3.593v21.428a3.57 3.57 0 007.139 0V65.057h3.592a3.545 3.545 0 003.546-3.545zM43.441 80.215a2.748 2.748 0 002.748 2.748h4.95a3.546 3.546 0 010 7.091H40.303a4 4 0 01-4-4V61.79a4 4 0 014-4h10.836a3.546 3.546 0 110 7.091h-4.95a2.748 2.748 0 000 5.496h4.95a3.546 3.546 0 010 7.091h-4.95a2.748 2.748 0 00-2.748 2.748z'
         fill='url(#paint_linear)'
       />
@@ -39,8 +39,8 @@ const svgExit = (props) => (
         y2='13.5'
         gradientUnits='userSpaceOnUse'
       >
-        <stop offset='1' stop-color='#fff' />
-        <stop offset='1' stop-color='#fff' stop-opacity='0' />
+        <stop offset='1' stopColor='#fff' />
+        <stop offset='1' stopColor='#fff' stopOpacity='0' />
       </linearGradient>
       <filter
         id='filter0_di'
@@ -49,9 +49,9 @@ const svgExit = (props) => (
         width='167.946'
         height='136.981'
         filterUnits='userSpaceOnUse'
-        color-interpolation-filters='sRGB'
+        colorInterpolationFilters='sRGB'
       >
-        <feFlood flood-opacity='0' result='BackgroundImageFix' />
+        <feFlood floodOpacity='0' result='BackgroundImageFix' />
         <feColorMatrix
           in='SourceAlpha'
           values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
