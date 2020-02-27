@@ -1,4 +1,5 @@
-import React, { lazy } from 'react';
+import React, { lazy, useState } from 'react';
+import styled from '@emotion/styled';
 import {
   Stack,
   Flex,
@@ -11,6 +12,9 @@ import {
   Tag,
   TagLabel,
 } from '@chakra-ui/core';
+
+import useIntersect from '../hooks/useIntersect';
+
 const SvgFrameworks = lazy(() =>
   import('../components/SvgComponents/Frameworks')
 );
@@ -104,7 +108,15 @@ const Content = (props) => (
   </Stack>
 );
 
+const Frameworks = styled(SvgFrameworks)`
+  margin-bottom: -125px;
+`;
+
 const SkillsAndExperience = (props) => {
+  const [animate, setAnimate] = useState(false);
+  const ref = useIntersect(() => {
+    setAnimate(true);
+  });
   return (
     <Flex
       isInline
@@ -113,9 +125,10 @@ const SkillsAndExperience = (props) => {
       alignItems='center'
       position='relative'
       spacing={0}
+      ref={ref}
       {...props}
     >
-      <Box as={SvgFrameworks} mb='-125px' />
+      <Frameworks animate={animate} />
       <Content margin='auto' />
       <Box
         as={SvgVertical}
