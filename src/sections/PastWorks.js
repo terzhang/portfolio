@@ -1,31 +1,32 @@
 import React, { lazy } from 'react';
-import { Stack, Text, ListItem, List } from '@chakra-ui/core';
+import { Flex, Box, Text, ListItem, List } from '@chakra-ui/core';
 const SvgVertical = lazy(() =>
   import('../components/SvgComponents/VerticalLine')
 );
 const SvgFolder = lazy(() => import('../components/SvgComponents/Folder'));
 
+const PastWorkItem = ({ name }) => {
+  return (
+    <ListItem border='2px solid' w='24rem' flex='1'>
+      <Box d='inline-block' backgroundColor='blue' size='20' />
+      <Text d='inline-block'>{name}</Text>
+    </ListItem>
+  );
+};
+
 const Content = (props) => {
   return (
-    <Stack {...props}>
-      <List>
-        <ListItem>
-          <Text>Massaging App</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Art Portfolio App</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nail Salon App</Text>
-        </ListItem>
-      </List>
-    </Stack>
+    <List d='flex' flexDir='column' flex='1' {...props}>
+      <PastWorkItem name='Massaging App' />
+      <PastWorkItem name='Art Portfolio Site' />
+      <PastWorkItem name='Nail Salon Site' />
+    </List>
   );
 };
 
 const PastWorks = (props) => {
   return (
-    <Stack
+    <Flex
       as='section'
       isInline
       position='relative'
@@ -34,14 +35,16 @@ const PastWorks = (props) => {
       justifyContent='space-between'
       {...props}
     >
-      <SvgVertical
+      <Box
+        as={SvgVertical}
         height='100%'
         preserveAspectRatio='none'
-        style={{ position: 'absolute', left: '0' }}
+        position='absolute'
+        left={0}
       />
-      <Content ml='32' alignSelf='center' />
-      <SvgFolder style={{ marginBottom: '-125px' }} />
-    </Stack>
+      <Content />
+      <Box as={SvgFolder} w='full' alignSelf='flex-end' mb='-125px' />
+    </Flex>
   );
 };
 
