@@ -29,7 +29,7 @@ const Content = (props) => {
       <Box
         as={SvgBoat}
         labelledby='boat-label'
-        animation={`${boatRocking} 3s ease infinite`}
+        animation={`${boatRocking} 5s ease infinite`}
       />
     </Stack>
   );
