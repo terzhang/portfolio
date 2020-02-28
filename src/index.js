@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Providers from './Providers';
 import * as serviceWorker from './serviceWorker';
+import 'typeface-signika-negative';
 
 ReactDOM.render(
   <Providers>

@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { Spinner, Flex, useColorMode, Stack } from '@chakra-ui/core';
+import { Spinner, Flex, useColorMode } from '@chakra-ui/core';
 import Header from './sections/Header';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
