@@ -13,6 +13,7 @@ import {
   TagLabel,
 } from '@chakra-ui/core';
 
+import SectionHeading from '../components/SectionHeading';
 import useIntersect from '../hooks/useIntersect';
 
 const SvgFrameworks = lazy(() =>
@@ -131,15 +132,7 @@ const Inner = () => {
       flexDir='column'
       ref={ref}
     >
-      <Heading
-        as='h2'
-        textAlign='center'
-        mb='3rem'
-        fontSize='h1'
-        letterSpacing='wide'
-      >
-        Skills and Experience
-      </Heading>
+      <SectionHeading>Skills and Experience</SectionHeading>
       <Flex w='full' h='full'>
         <Frameworks animate={animate} />
         <Content margin='auto' />
@@ -154,16 +147,16 @@ const Frameworks = styled(SvgFrameworks)`
 
 const SkillsAndExperience = (props) => {
   return (
-    <Box position='relative' {...props}>
+    <Box as='section' position='relative' w='full' h='full' {...props}>
       <Inner />
       <Box
         as={SvgVertical}
         height='100%'
-        viewBox='0 0 40 225'
+        // viewBox='0 0 40 225'
         preserveAspectRatio='none'
         position='absolute'
+        top={0}
         right={0}
-        bottom={0}
       />
     </Box>
   );
