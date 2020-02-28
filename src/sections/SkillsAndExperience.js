@@ -34,8 +34,8 @@ const ExperienceItem = ({ title, date = '', description = '' }) => (
   </ListItem>
 );
 
-const Experiences = () => (
-  <List>
+const Experiences = (props) => (
+  <List textAlign='left' {...props}>
     <ExperienceItem title='Developer' date='2018-2020' />
     <ExperienceItem title='Freelancer' date='2018-2019' />
     <ExperienceItem title='eCommerce owner' date='2017-2018' />
@@ -94,42 +94,68 @@ const skillsObj = [
 ];
 
 const Content = (props) => (
-  <Stack spacing={8} justifyContent='space-evenly' h='full' {...props}>
-    <Box>
-      <Heading size='lg'>I'm well versed in</Heading>
+  <Stack
+    spacing={12}
+    justifyContent='space-evenly'
+    h='full'
+    textAlign='center'
+    {...props}
+  >
+    {/* skills */}
+    <Stack spacing={8}>
+      <Heading fontSize='h3'>I'm well versed in</Heading>
       <SkillTags skillsObj={skillsObj} />
-    </Box>
-    <Box>
-      <Heading size='lg' id='experience'>
+    </Stack>
+    {/* work exp */}
+    <Stack spacing={8}>
+      <Heading fontSize='h3' id='experience'>
         Work Experience
       </Heading>
       <Experiences />
-    </Box>
+    </Stack>
   </Stack>
 );
+
+const Inner = () => {
+  const [animate, setAnimate] = useState(false);
+  const ref = useIntersect(() => {
+    setAnimate(true);
+  });
+
+  return (
+    <Flex
+      w='full'
+      alignSelf='center'
+      alignItems='center'
+      position='relative'
+      flexDir='column'
+      ref={ref}
+    >
+      <Heading
+        as='h2'
+        textAlign='center'
+        mb='3rem'
+        fontSize='h1'
+        letterSpacing='wide'
+      >
+        Skills and Experience
+      </Heading>
+      <Flex w='full' h='full'>
+        <Frameworks animate={animate} />
+        <Content margin='auto' />
+      </Flex>
+    </Flex>
+  );
+};
 
 const Frameworks = styled(SvgFrameworks)`
   margin-bottom: -125px;
 `;
 
 const SkillsAndExperience = (props) => {
-  const [animate, setAnimate] = useState(false);
-  const ref = useIntersect(() => {
-    setAnimate(true);
-  });
   return (
-    <Flex
-      isInline
-      w='full'
-      alignSelf='center'
-      alignItems='center'
-      position='relative'
-      spacing={0}
-      ref={ref}
-      {...props}
-    >
-      <Frameworks animate={animate} />
-      <Content margin='auto' />
+    <Box position='relative' {...props}>
+      <Inner />
       <Box
         as={SvgVertical}
         height='100%'
@@ -138,9 +164,8 @@ const SkillsAndExperience = (props) => {
         position='absolute'
         right={0}
         bottom={0}
-        alignSelf='flex-end'
       />
-    </Flex>
+    </Box>
   );
 };
 
