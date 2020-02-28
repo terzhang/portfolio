@@ -36,7 +36,6 @@ export default function Sections() {
   return (
     <Box
       as='main'
-      // h='full' <-- this made the container not flex by children
       w='full'
       backgroundColor={
         colorMode === 'light'
