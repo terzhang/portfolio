@@ -1,5 +1,7 @@
 import React, { lazy } from 'react';
 import { Flex, Box, Text, ListItem, List } from '@chakra-ui/core';
+import SectionHeading from '../components/SectionHeading';
+
 const SvgVertical = lazy(() =>
   import('../components/SvgComponents/VerticalLine')
 );
@@ -24,17 +26,19 @@ const Content = (props) => {
   );
 };
 
+const Inner = () => (
+  <Box w='full' h='full'>
+    <SectionHeading heading='Past Works' />
+    <Flex w='full' h='full'>
+      <Content />
+      <Box as={SvgFolder} alignSelf='flex-end' mb='-125px' />
+    </Flex>
+  </Box>
+);
+
 const PastWorks = (props) => {
   return (
-    <Flex
-      as='section'
-      isInline
-      position='relative'
-      w='full'
-      h='full'
-      justifyContent='space-between'
-      {...props}
-    >
+    <Box as='section' position='relative' w='full' h='full' {...props}>
       <Box
         as={SvgVertical}
         height='100%'
@@ -42,9 +46,8 @@ const PastWorks = (props) => {
         position='absolute'
         left={0}
       />
-      <Content />
-      <Box as={SvgFolder} alignSelf='flex-end' mb='-125px' />
-    </Flex>
+      <Inner />
+    </Box>
   );
 };
 
