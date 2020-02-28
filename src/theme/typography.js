@@ -43,6 +43,10 @@ const typography = {
     '4xl': '2.25rem',
     '5xl': '3rem',
     '6xl': '4rem',
+    h1: '3rem',
+    h2: '2.5rem',
+    h3: '2rem',
+    text: '1.5rem',
   },
 };
 
