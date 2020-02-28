@@ -10,9 +10,11 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "emotion-theming": "^10.0.27",
+    "intersection-observer": "^0.7.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "typeface-signika-negative": "0.0.71"
   },
   "scripts": {
     "start": "react-scripts start",
