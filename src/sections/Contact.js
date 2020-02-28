@@ -1,5 +1,5 @@
 import React, { lazy } from 'react';
-import { Box, Stack, Text } from '@chakra-ui/core';
+import { Box, Stack, Text, PseudoBox } from '@chakra-ui/core';
 import { keyframes } from '@emotion/core';
 const SvgVertical = lazy(() =>
   import('../components/SvgComponents/VerticalLine')
@@ -26,10 +26,13 @@ const Content = (props) => {
       <Text as='h2' fontSize='5xl' mx='20' id='boat-label'>
         There's a boat load of methods to find me
       </Text>
-      <Box
+      <PseudoBox
         as={SvgBoat}
         labelledby='boat-label'
         animation={`${boatRocking} 5s ease infinite`}
+        _hover={{
+          animationPlayState: 'paused',
+        }}
       />
     </Stack>
   );
