@@ -16,7 +16,7 @@ const PastWorkItem = ({ name }) => {
 
 const Content = (props) => {
   return (
-    <List d='flex' flexDir='column' flex='1' {...props}>
+    <List d='flex' flexDir='column' mx='auto' {...props}>
       <PastWorkItem name='Massaging App' />
       <PastWorkItem name='Art Portfolio Site' />
       <PastWorkItem name='Nail Salon Site' />
@@ -43,7 +43,7 @@ const PastWorks = (props) => {
         left={0}
       />
       <Content />
-      <Box as={SvgFolder} w='full' alignSelf='flex-end' mb='-125px' />
+      <Box as={SvgFolder} alignSelf='flex-end' mb='-125px' />
     </Flex>
   );
 };
