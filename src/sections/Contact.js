@@ -7,7 +7,7 @@ const SvgVertical = lazy(() =>
 const SvgLighthouse = lazy(() =>
   import('../components/SvgComponents/Lighthouse')
 );
-const SvgBoat = lazy(() => import('../components/SvgComponents/ContactsBoat'));
+const SvgBoat = lazy(() => import('../components/SvgComponents/ContactBoat'));
 
 const boatRocking = keyframes`
   /*The 0% and 100% declarations are not necessary here because they are the same as the original value that the elements hold within the webpage */
