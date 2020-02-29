@@ -3,7 +3,7 @@ const template = require('./template');
 module.exports = {
   svgo: true,
   svgoConfig: {
-    plugins: [{ removeViewBox: false }],
+    plugins: [{ removeViewBox: false }, { cleanupIDs: false }],
   },
   memo: false,
   ref: false,
