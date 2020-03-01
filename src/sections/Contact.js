@@ -9,31 +9,13 @@ const SvgLighthouse = lazy(() =>
 );
 const SvgBoat = lazy(() => import('../components/SvgComponents/ContactBoat'));
 
-const boatRocking = keyframes`
-  /*The 0% and 100% declarations are not necessary here because they are the same as the original value that the elements hold within the webpage */
-  0%   {
-    transform: rotate(3deg) translate(-20px, 20px);}
-  50%  {
-    transform: rotate(-3deg) translateY(40px);}
-  100% {
-    transform: rotate(3deg) translate(-20px, 20px);}
-  }
-`;
-
 const Content = (props) => {
   return (
     <Stack alignItems='center' {...props}>
       <Text as='h2' fontSize='5xl' mx='20' id='boat-label'>
         There's a boat load of methods to find me
       </Text>
-      <PseudoBox
-        as={SvgBoat}
-        labelledby='boat-label'
-        animation={`${boatRocking} 5s ease infinite`}
-        _hover={{
-          animationPlayState: 'paused',
-        }}
-      />
+      <SvgBoat labelledby='boat-label' />
     </Stack>
   );
 };

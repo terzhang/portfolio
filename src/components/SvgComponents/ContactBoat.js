@@ -1,28 +1,60 @@
 import React from 'react';
-
+import { keyframes } from '@emotion/core';
+import { Link } from '@chakra-ui/core';
+import styled from '@emotion/styled';
+const boatRocking = keyframes`
+  /*The 0% and 100% declarations are not necessary here because they are the same as the original value that the elements hold within the webpage */
+  0%   {
+    transform: rotate(3deg) translate(-20px, 20px);}
+  50%  {
+    transform: rotate(-3deg) translateY(40px);}
+  100% {
+    transform: rotate(3deg) translate(-20px, 20px);}
+  }
+`;
+const Svg = styled.svg`
+  animation: ${boatRocking} 5s ease infinite;
+  :hover {
+    animation-play-state: 'paused';
+  }
+  #boat_of_contacts path:hover {
+    fill: #000000;
+  }
+  #footer_logos path {
+    pointer-events: none;
+  }
+`;
 const ContactBoat = () => (
-  <svg version='1.1' x='0' y='0' viewBox='0 0 649 194'>
+  <Svg version='1.1' x='0' y='0' viewBox='0 0 649 194'>
     <g id='boat_of_contacts'>
-      <path
-        id='github'
-        fill='#8A6052'
-        d='M231.8 183C35.5 143.5 0 .1 0 .1c27.1 13.9 65.3 24 109.4 33.5 37.2 8 79.6 12.7 126.4 15.3l-4 134.1z'
-      />
-      <path
-        id='linkedin'
-        fill='#8A6052'
-        d='M333 193c-37.7-.3-71.3-3.9-101.2-9.9l4-134.1c31.8 1.8 65.5 2.6 101 2.9'
-      />
-      <path
-        id='twitter'
-        fill='#8A6052'
-        d='M449.8 184.3c-33.2 5.8-71.8 9.1-116.8 8.7l3.8-141.1c35.6.3 72.9 0 111.6-.5l1.4 132.9z'
-      />
-      <path
-        id='email'
-        fill='#8A6052'
-        d='M448.4 51.4c63.6-.8 130.9-2 200.6-2 0 0-21.3 103.7-199.2 134.9'
-      />
+      <Link href='http://github.com/terzhang'>
+        <path
+          id='github'
+          fill='#8A6052'
+          d='M231.8 183C35.5 143.5 0 .1 0 .1c27.1 13.9 65.3 24 109.4 33.5 37.2 8 79.6 12.7 126.4 15.3l-4 134.1z'
+        />
+      </Link>
+      <Link href='https://www.linkedin.com/in/terzhang/'>
+        <path
+          id='linkedin'
+          fill='#8A6052'
+          d='M333 193c-37.7-.3-71.3-3.9-101.2-9.9l4-134.1c31.8 1.8 65.5 2.6 101 2.9'
+        />
+      </Link>
+      <Link href='http://twitter.com/tewwyterry'>
+        <path
+          id='twitter'
+          fill='#8A6052'
+          d='M449.8 184.3c-33.2 5.8-71.8 9.1-116.8 8.7l3.8-141.1c35.6.3 72.9 0 111.6-.5l1.4 132.9z'
+        />
+      </Link>
+      <Link href='mailto:terzhang@hotmail.com'>
+        <path
+          id='email'
+          fill='#8A6052'
+          d='M448.4 51.4c63.6-.8 130.9-2 200.6-2 0 0-21.3 103.7-199.2 134.9'
+        />
+      </Link>
       <g id='footer_logos'>
         <path
           id='LinkedIn_svg'
@@ -52,7 +84,7 @@ const ContactBoat = () => (
         />
       </g>
     </g>
-  </svg>
+  </Svg>
 );
 
 export default ContactBoat;
