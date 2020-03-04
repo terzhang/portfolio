@@ -1,8 +1,8 @@
 import React, { lazy } from 'react';
 import { Flex } from '@chakra-ui/core';
-const SvgFadeIn = lazy(() => import('../components/SvgComponents/FadeIn'));
-const SvgFadeMid = lazy(() => import('../components/SvgComponents/FadeMid'));
-const SvgFadeOut = lazy(() => import('../components/SvgComponents/FadeOut'));
+const SvgFadeIn = lazy(() => import('./SvgComponents/FadeIn'));
+const SvgFadeMid = lazy(() => import('./SvgComponents/FadeMid'));
+const SvgFadeOut = lazy(() => import('./SvgComponents/FadeOut'));
 
 const HomeCurveDivider = () => (
   // this height is (FadeIn/FadeOut height * 2) - FadeMid
