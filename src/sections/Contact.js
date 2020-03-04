@@ -1,6 +1,5 @@
 import React, { lazy } from 'react';
-import { Box, Stack, Text, PseudoBox } from '@chakra-ui/core';
-import { keyframes } from '@emotion/core';
+import { Box, Stack, Text } from '@chakra-ui/core';
 const SvgVertical = lazy(() =>
   import('../components/SvgComponents/VerticalLine')
 );

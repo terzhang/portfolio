@@ -48,12 +48,6 @@ export default function useSize(ref) {
       console.log('size', newSize);
       // set the size depending on whether it was changed or not
       setSize((prev) => (prev === newSize ? prev : newSize));
-
-      /* setSize((s) =>
-      s.width !== width || s.height !== height ? { width, height } : s
-    ); */
-      // console.log(entries);
-      // console.log('observed ' + width + 'x' + height);
     }, 300),
     []
   );
@@ -65,15 +59,6 @@ export default function useSize(ref) {
       const RObserver =
         window.ResizeObserver || require('resize-observer-polyfill').default;
       observer.current = new RObserver(observe);
-      // an array of refs can be passed in
-      /* if (Array.isArray(ref)) {
-        for (let target in ref) {
-          observer.current.observe(target.current);
-        }
-      } else {
-        observer.current.observe(ref.current);
-      } */
-      // observer.current.observe(ref.current);
     }
     return () => {
       if (observer.current) {
