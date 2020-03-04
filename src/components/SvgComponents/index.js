@@ -1,3 +1,4 @@
+export { default as Kitty } from './Kitty';
 export { default as Birds } from './Birds';
 export { default as ChimneyShade } from './ChimneyShade';
 export { default as Chimney } from './Chimney';
