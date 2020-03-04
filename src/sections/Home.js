@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, forwardRef } from 'react';
 import { Stack, Flex, Text } from '@chakra-ui/core';
 
 // const SvgRoofNav = lazy(() => import('../components/SvgComponents/RoofNav'));
@@ -7,7 +7,7 @@ const SvgRoofVertical = lazy(() =>
   import('../components/SvgComponents/RoofVertical')
 );
 
-const Home = (props) => {
+const Home = forwardRef((props, ref) => {
   // TODO: convert style prop to emotion css prop use as chakra components
   return (
     <Flex
@@ -16,6 +16,7 @@ const Home = (props) => {
       w='full'
       position='relative'
       flexDir='column'
+      ref={ref}
       {...props}
     >
       <Flex
@@ -42,6 +43,6 @@ const Home = (props) => {
       </Flex>
     </Flex>
   );
-};
+});
 
 export default Home;
