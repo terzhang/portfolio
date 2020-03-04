@@ -76,10 +76,10 @@ export default function useSize(ref) {
       // an array of refs can be passed in
       if (Array.isArray(ref)) {
         for (let target in ref) {
-          observer.current.observe(target.current);
+          observer.current.observe(target);
         }
       } else {
-        observer.current.observe(ref.current);
+        observer.current.observe(ref);
       }
     };
     if (ref) {
