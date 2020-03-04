@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import useDebouncedCallback from './useDebouncedCallback';
 
 // ref === [{name, ref}, {name2, ref2}, ...]
 export default function useSize(ref) {
@@ -6,10 +7,10 @@ export default function useSize(ref) {
   const [ignored, setIgnored] = useState(0);
   // {ref1: {width, height}, ref2: {width, height}, ...}
   const [size, setSize] = useState({});
-  // init and observe using resize observer onMount
-  // unObserve and nullify the observer ref onUnmount
-  useEffect(() => {
-    function observe(entries) {
+
+  // debounce the observing callback to avoid setting state too often
+  const observe = useCallback(
+    useDebouncedCallback((entries) => {
       // get the supported box width and height
       const getBoxDimension = (entry) => {
         if (entry.contentBoxSize) {
@@ -49,12 +50,17 @@ export default function useSize(ref) {
       setSize((prev) => (prev === newSize ? prev : newSize));
 
       /* setSize((s) =>
-        s.width !== width || s.height !== height ? { width, height } : s
-      ); */
+      s.width !== width || s.height !== height ? { width, height } : s
+    ); */
       // console.log(entries);
       // console.log('observed ' + width + 'x' + height);
-    }
+    }, 300),
+    []
+  );
 
+  // init and observe using resize observer onMount
+  // unObserve and nullify the observer ref onUnmount
+  useEffect(() => {
     if (!observer.current) {
       const RObserver =
         window.ResizeObserver || require('resize-observer-polyfill').default;
@@ -74,8 +80,8 @@ export default function useSize(ref) {
         observer.current.disconnect();
       }
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    //// eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [observe]);
 
   // the ref to be observed can change
   // force re-render when ref changes
