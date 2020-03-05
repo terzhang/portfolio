@@ -36,9 +36,9 @@ const Inner = () => (
   </Box>
 );
 
-const PastWorks = (props) => {
+const PastWorks = React.forwardRef((props, ref) => {
   return (
-    <Box as='section' position='relative' {...props}>
+    <Box as='section' position='relative' {...props} ref={ref}>
       <Box
         as={SvgVertical}
         height='100%'
@@ -49,6 +49,6 @@ const PastWorks = (props) => {
       <Inner />
     </Box>
   );
-};
+});
 
 export default PastWorks;

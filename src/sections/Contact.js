@@ -19,9 +19,9 @@ const Content = (props) => {
   );
 };
 
-const Contact = (props) => {
+const Contact = React.forwardRef((props, ref) => {
   return (
-    <Stack as='section' isInline position='relative' {...props}>
+    <Stack as='section' isInline position='relative' {...props} ref={ref}>
       <Box
         as={SvgLighthouse}
         preserveAspectRatio='xMidYMax meet'
@@ -35,6 +35,6 @@ const Contact = (props) => {
       />
     </Stack>
   );
-};
+});
 
 export default Contact;

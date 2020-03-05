@@ -145,9 +145,9 @@ const Frameworks = styled(SvgFrameworks)`
   margin-bottom: -125px;
 `;
 
-const SkillsAndExperience = (props) => {
+const SkillsAndExperience = React.forwardRef((props, ref) => {
   return (
-    <Box as='section' position='relative' {...props}>
+    <Box as='section' position='relative' {...props} ref={ref}>
       <Inner />
       <Box
         as={SvgVertical}
@@ -160,6 +160,6 @@ const SkillsAndExperience = (props) => {
       />
     </Box>
   );
-};
+});
 
 export default SkillsAndExperience;
