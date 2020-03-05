@@ -9,7 +9,7 @@ const SvgFolder = lazy(() => import('../components/SvgComponents/Folder'));
 
 const PastWorkItem = ({ name }) => {
   return (
-    <ListItem border='2px solid' w='24rem' flex='1'>
+    <ListItem border='2px solid' w='24rem'>
       <Box d='inline-block' backgroundColor='blue' size='20' />
       <Text d='inline-block'>{name}</Text>
     </ListItem>
@@ -38,7 +38,7 @@ const Inner = () => (
 
 const PastWorks = (props) => {
   return (
-    <Box as='section' position='relative' w='full' h='full' {...props}>
+    <Box as='section' position='relative' {...props}>
       <Box
         as={SvgVertical}
         height='100%'

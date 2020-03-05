@@ -147,7 +147,7 @@ const Frameworks = styled(SvgFrameworks)`
 
 const SkillsAndExperience = (props) => {
   return (
-    <Box as='section' position='relative' w='full' h='full' {...props}>
+    <Box as='section' position='relative' {...props}>
       <Inner />
       <Box
         as={SvgVertical}

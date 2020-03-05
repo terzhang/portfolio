@@ -21,14 +21,7 @@ const Content = (props) => {
 
 const Contact = (props) => {
   return (
-    <Stack
-      as='section'
-      isInline
-      position='relative'
-      w='full'
-      h='full'
-      {...props}
-    >
+    <Stack as='section' isInline position='relative' {...props}>
       <Box
         as={SvgLighthouse}
         preserveAspectRatio='xMidYMax meet'
